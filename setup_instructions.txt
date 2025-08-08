@@ -1,0 +1,117 @@
+setup_instructions
+
+---
+
+ Features
+
+- RESTful API with Flask
+- SQLite DB with SQLAlchemy ORM
+- Basic example: Book API (title, description)
+- Environment-based dev setup
+- Minimal SDK-like structure
+
+---
+
+## 📁 Project Structure
+
+```
+
+│
+├── app.py                  # Main Flask application
+├── data.db                 # SQLite database (auto-created)
+├── .venv/                  # Virtual environment (not included in repo)
+├── requirements.txt        # Project dependencies
+└── README.md               # You are here
+
+````
+
+---
+
+ Setup & Run Locally (PowerShell Compatible)
+
+1. Open terminal and run the following commands:
+
+```powershell
+# 1. Navigate to your working directory
+pwd
+
+# 2. Create virtual environment
+python -m venv .venv
+
+# 3. Create Python file (name as app.py or custom)
+New-Item -Path . -Name "app.py" -ItemType "File"
+
+# 4. Activate virtual environment
+. .\.venv\Scripts\Activate.ps1
+
+# 5. Install dependencies
+pip install flask
+pip install flask-sqlalchemy
+pip install requests
+````
+
+2. Set up Flask environment:
+
+```powershell
+$env:FLASK_APP = "app.py"
+$env:FLASK_ENV = "development"
+```
+
+3. Run your app:
+
+```powershell
+flask run
+```
+
+4. Optional: Interact with DB manually via Python shell
+
+```powershell
+python
+```
+
+```python
+from app import app, db, Book
+
+with app.app_context():
+    db.create_all()  # Creates tables
+
+    # Add data
+    book = Book(title="Mans", description="gjfjj")
+    db.session.add(book)
+    db.session.commit()
+
+    # Fetch all
+    print(Book.query.all())
+```
+
+---
+
+ Sample API Endpoints
+
+| Method | Endpoint    | Description         |
+| ------ | ----------- | ------------------- |
+| GET    | /books      | Get all books       |
+| POST   | /books      | Add a new book      |
+| GET    | /books/<id> | Get a specific book |
+| PUT    | /books/<id> | Update a book       |
+| DELETE | /books/<id> | Delete a book       |
+
+---
+
+ Example Book Model
+
+```python
+class Book(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(200))
+```
+
+---
+
+ Notes
+
+* Make sure to run all DB operations **within** the `app.app_context()` block.
+* This is ideal for demonstrating API SDK consumption, testing endpoints, or preparing for API-support style roles.
+
+
