@@ -1,7 +1,3 @@
-# BookShelf-API
-restful-book-api-flask-sqlite,flask-book-library-management-api
-
-
 Book Library API – Flask + SQLite
 
 A simple and powerful RESTful API for managing a digital book library, built with Python, Flask, and SQLite.
@@ -239,17 +235,5 @@ book-library-api/
 * You can view it with any SQLite viewer or CLI.
 * Add more fields like ISBN, ratings, etc. to extend functionality.
 
----
- Contact
 
-If you're stuck or need help, feel free to raise an issue or reach out.
-
----
-
- License
-
-This project is open-source and free to use for learning and development.
-
-
-```
 
