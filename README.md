@@ -2,7 +2,7 @@
 
 A simple and powerful RESTful API for managing a digital book library, built with Python, Flask, and SQLite.
 
-This API allows you to create, read, update, and delete book records.  thank you
+This API allows you to create, read, update, and delete book records.  name
 Perfect for learning backend development, testing REST APIs, or integrating into a frontend/book management app.
 
 ---
